@@ -24,4 +24,8 @@ urlpatterns = [
     #account app
     path('account/', include('account.urls')),
 
+    #store app
+
+    path('', include('store.urls')), 
+
 ]
