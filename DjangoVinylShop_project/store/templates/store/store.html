@@ -1,54 +1,51 @@
+{% extends "./base.html" %} {% load static %} {% block content %}
 
-{% extends "./base.html" %}
+<!-- Introduction section -->
 
-{% load static %}
+<section class="py-4 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h3>DJANGO VINYL SHOP</h3>
+      <br />
+      <h4>Używane płyty winylowe</h4>
 
+      <br />
 
-{% block content %}
+      <p class="lead text-muted">Zobacz naszą kolekcję</p>
 
+      <br />
 
-    <!-- Introduction section -->
-  
-    <section class="py-4 text-center container">
+      <a href="#" class="btn btn-primary my-2"> Załóż Konto </a>
+    </div>
+  </div>
+</section>
 
-        <div class="row py-lg-5">
-        
-            <div class="col-lg-6 col-md-8 mx-auto">
-                
+<!-- All products section -->
 
-                <h3> DJANGO VINYL SHOP </h3>
-                <br>
-                <h4> Używane płyty winylowe </h4>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="pb-3 h5">Wszystkie produkty</div>
 
+    <hr />
 
-                <br>
-                
+    <br />
 
-                <p class="lead text-muted">
-
-                Zobacz naszą kolekcję
-
-                </p>
-
-
-                <br>
-        
-                <a href="#" class="btn btn-primary my-2"> Załóż Konto </a>
-                
-                
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+      <div class="col">
+        <div class="card shadow-sm">
+          <img class="img-fluid" alt="Responsive image" src="" />
+          <div class="card-body">
+            <p class="card-text">
+              <a class="text-info text-decoration-none" href=""></a>
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <h5></h5>
             </div>
-        
+          </div>
         </div>
-
-    
-    </section>
-
-
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
-
-
-
-
-
-
