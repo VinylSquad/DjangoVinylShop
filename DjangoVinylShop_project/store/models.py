@@ -35,13 +35,9 @@ class Product(models.Model):
     category = models.ForeignKey(
         Category, related_name='product', on_delete=models.CASCADE, null=True)
 
-    artist  = models.CharField(max_length=250)
-
     title = models.CharField(max_length=250)
 
     label = models.CharField(max_length=250, default='un-labeled')
-    
-    release_date = models.DateField('Release Date', year_field='release_year')
 
     description = models.TextField(blank=True)
 
@@ -51,18 +47,6 @@ class Product(models.Model):
 
     image = models.ImageField(upload_to='images/')
 
-    
-    # Dodajemy metodę, aby łatwiej ustawiać rok wydania
-    def set_release_year(self, year):
-        
-        self.release_date = year
-    
-    
-    def save(self, *args, **kwargs):
-        if self.release_date:
-            self.release_date = self.release_date.replace(month=1, day=1)
-        super(Product, self).save(*args, **kwargs)
-    
     
 
     class Meta:
