@@ -7,10 +7,25 @@
 
 {% block content %}
 
+<style>
+
+    body{
+
+        background-color: gray;
+
+
+
+    }
+
+
+
+
+</style>
+
 <body>
     <br>
 
-    <div class="container bg-white shadow-md p-5">
+    <div class="container bg-white shadow-md p-5 form-layout">
 
         <h3>Create your account</h3>
 
@@ -32,7 +47,7 @@
 
             {{form.password1 | as_crispy_field}}
 
-            <br><br>
+            <br>
 
             {{form.password2 | as_crispy_field}}
 
@@ -49,7 +64,8 @@
     </div>
 </body>
 
-
+<br>
+<br>
 
 {% endblock %}
 
