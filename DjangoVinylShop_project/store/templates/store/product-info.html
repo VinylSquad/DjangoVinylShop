@@ -58,7 +58,7 @@
                   value="{{ product.id }}"
                   class="btn btn-secondary btn-sm"
                 >
-                  Dodaj do karty
+                  Dodaj do koszyka
                 </button>
               </div>
             </div>
@@ -86,9 +86,9 @@
       },
 
       success: function (json) {
+        //console.log(json) - przy tescie sesji potrzebne do wypisania wyniku w konsoli
 
-        console.log(json)
-
+        document.getElementById("cart-qty").textContent = json.qty
       },
 
       error: function (xhr, errmsg, err) {},
