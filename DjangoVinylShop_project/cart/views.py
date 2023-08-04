@@ -6,6 +6,10 @@ from store.models import Product
 
 from django.shortcuts import get_object_or_404
 
+from django.http import JsonResponse
+
+
+
 
 
 def cart_summary(request):
@@ -19,7 +23,7 @@ def cart_add(request):
     
     cart = Cart(request)
     
-    if request.POST.get('action') == 'POST':
+    if request.POST.get('action') == 'post':
         
         product_id = int(request.POST.get('product_id'))
         
@@ -28,8 +32,10 @@ def cart_add(request):
         product = get_object_or_404(Product, id=product_id)
         
         cart.add(product=product, product_qty=product_quantity)
+        
+        response = JsonResponse({'The product is called: ': product.title, ' and the product quantity is: ': product_quantity})
 
-
+        return response
 
 def cart_delete(request):
     
