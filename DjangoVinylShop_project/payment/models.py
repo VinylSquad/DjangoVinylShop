@@ -9,7 +9,7 @@ class ShippingAddress(models.Model):
     full_name = models.CharField(max_length=300)
     email = models.EmailField(max_length=255)
     street = models.CharField(max_length=300)
-    street_number = models.DecimalField(max_digits=8, decimal_places=0)
+    street_number = models.CharField(max_length=8)
     city = models.CharField(max_length=255)
     zipcode = models.CharField(max_length=255, null=True, blank=True) 
 
