@@ -75,7 +75,7 @@
 
                 <button
                   type="button"
-                  id="delete-button"
+                  data-index="{{product.id}}"
                   class="btn btn-danger btn-sm delete-button"
                 >
                   Usuń
@@ -102,5 +102,29 @@
 
 
 </main>
+
+<script>
+  // Delete button
+  $(document).on("click", ".delete-button", function (e) {
+    e.preventDefault();
+
+    $.ajax({
+      type: "POST",
+      url: '{% url "cart-delete" %}',
+      data: {
+        product_id: $(this).data('index'),  // identify which delete button we use on the site
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+        action: "post",
+      },
+
+      success: function (json) {
+        //console.log(json) - przy tescie sesji potrzebne do wypisania wyniku w konsoli
+
+        //document.getElementById("cart-qty").textContent = json.qty
+      },
+
+      error: function (xhr, errmsg, err) {},
+    });
+  });</script>
 
 {% endblock %}
