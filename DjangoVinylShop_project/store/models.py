@@ -33,7 +33,7 @@ class Product(models.Model):
 
     slug = models.SlugField(max_length=255)
 
-    # image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/')
 
     class Meta:
 
