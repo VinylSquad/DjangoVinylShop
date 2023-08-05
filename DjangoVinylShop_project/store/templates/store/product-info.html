@@ -55,10 +55,10 @@
                 <button
                   type="button"
                   id="add-button"
-                  value=""
+                  value="{{ product.id }}"
                   class="btn btn-secondary btn-sm"
                 >
-                  Dodaj do karty
+                  Dodaj do koszyka
                 </button>
               </div>
             </div>
@@ -70,5 +70,31 @@
 
   <br />
 </div>
+
+<script>
+  // Add button
+  $(document).on("click", "#add-button", function (e) {
+    e.preventDefault();
+
+    $.ajax({
+      type: "POST",
+      url: '{% url "cart-add" %}',
+      data: {
+        product_id: $("#add-button").val(),
+        product_quantity: $("#select option:selected").text(),
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+        action: "post",
+      },
+
+      success: function (json) {
+        //console.log(json) - przy tescie sesji potrzebne do wypisania wyniku w konsoli
+
+        document.getElementById("cart-qty").textContent = json.qty
+      },
+
+      error: function (xhr, errmsg, err) {},
+    });
+  });
+</script>
 
 {% endblock %}
