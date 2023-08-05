@@ -34,10 +34,14 @@ class Product(models.Model):
 
     category = models.ForeignKey(
         Category, related_name='product', on_delete=models.CASCADE, null=True)
+    
+    artist = models.CharField(max_length=250)
 
     title = models.CharField(max_length=250)
 
     label = models.CharField(max_length=250, default='un-labeled')
+    
+    release_year = models.PositiveSmallIntegerField()
 
     description = models.TextField(blank=True)
 
