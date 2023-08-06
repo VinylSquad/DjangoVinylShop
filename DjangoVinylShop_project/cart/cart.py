@@ -74,6 +74,8 @@ class Cart():
     
     
     
+    
+    
     def __iter__(self):
         
         all_product_ids = self.cart.keys()
@@ -94,6 +96,8 @@ class Cart():
             
             yield item
             
+    
+    
             
     def get_total(self):
         
