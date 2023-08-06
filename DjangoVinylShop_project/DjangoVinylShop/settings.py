@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'cart',
     'mathfilters',
     'payment',
-    'crispy_forms'
+    'crispy_forms',
+    'bootstrap5',
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
@@ -70,8 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'store.views.categories', # Updated
-                'cart.context_processors.cart', # Updated
+                'store.views.categories',  # Updated
+                'cart.context_processors.cart',  # Updated
             ],
         },
     },
@@ -138,7 +139,7 @@ MEDIA_ROOT = BASE_DIR / 'static/media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Email verification settings
+# Email verification settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
