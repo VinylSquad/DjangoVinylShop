@@ -19,15 +19,6 @@ class Category(models.Model):
     def __str__(self):
 
         return self.name
-    
-    
-    
-    def get_absolute_url(self):
-        
-        return reverse('list-category', args=[self.slug])
-
-
-
 
 
 class Product(models.Model):
@@ -46,8 +37,6 @@ class Product(models.Model):
     slug = models.SlugField(max_length=255)
 
     image = models.ImageField(upload_to='images/')
-
-    
 
     class Meta:
 
