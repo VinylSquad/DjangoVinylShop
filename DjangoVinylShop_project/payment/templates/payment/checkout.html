@@ -127,11 +127,6 @@
 
     
 
-
-
-
-        // 5 linii dol
-
     <script>
 
 
@@ -152,11 +147,7 @@
                 street: $('#street').val(),
                 street_number: $('#street_number').val(),
                 city: $('#city').val(),
-                zipcode: $('#zipcode').val(),
-
-
-
-                
+                zipcode: $('#zipcode').val(),             
 
                 csrfmiddlewaretoken: "{{csrf_token}}",
                 action: 'post'
@@ -167,10 +158,14 @@
 
                 //console.log(json)
 
+                window.location.replace("{% url 'payment-success' %}");
+
 
             },
 
             error: function(xhr, errmsg, err){
+
+                window.location.replace("{% url 'payment-failed' %}");
 
 
             }
@@ -181,10 +176,7 @@
     })
 
     
-
-
 </script>
-
 
 
 {% endblock %}
