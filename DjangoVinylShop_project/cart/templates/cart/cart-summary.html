@@ -18,13 +18,10 @@
           alt="Responsive image"
           src="{{product.image.url}}"
         />
-        
       </div>
 
       <div class="col-md-9 col-lg-10 ps-md-3 ps-lg-10">
         <a href="{{product.get_absolute_url}}" class="text-info text-reset">
-          
-
           <h1 class="h5 pt-2">{{ product.title }}</h1>
         </a>
 
@@ -34,7 +31,9 @@
               <div class="col-6">Produkt</div>
 
               <div class="col-6 text-end">
-                <span class="h6 fw-bold">PLN {{ product.price|mul:item.qty }} </span>
+                <span class="h6 fw-bold"
+                  >PLN {{ product.price|mul:item.qty }}
+                </span>
               </div>
             </div>
           </div>
@@ -47,9 +46,7 @@
                 &nbsp;
 
                 <select id="select{{product.id}}">
-                  <option selected>
-                    {{item.qty}}
-                  </option>
+                  <option selected>{{item.qty}}</option>
 
                   <option value="">1</option>
 
@@ -87,8 +84,7 @@
       </div>
     </div>
 
-    {% endwith %} 
-  {% endfor %}
+    {% endwith %} {% endfor %}
 
     <div class="col-12 text-end">
       <div class="h6 fw-bold">
@@ -97,10 +93,8 @@
       </div>
     </div>
   </div>
-<br>
-<br>
-
-
+  <br />
+  <br />
 </main>
 
 <script>
@@ -112,7 +106,7 @@
       type: "POST",
       url: '{% url "cart-delete" %}',
       data: {
-        product_id: $(this).data('index'),  // identify which delete button we use on the site
+        product_id: $(this).data("index"), // identify which delete button we use on the site
         csrfmiddlewaretoken: "{{ csrf_token }}",
         action: "post",
       },
@@ -122,47 +116,45 @@
 
         location.reload();
 
-        document.getElementById("cart-qty").textContent = json.qty
+        document.getElementById("cart-qty").textContent = json.qty;
 
-        document.getElementById("total").textContent = json.total
-
-      },
-
-      error: function (xhr, errmsg, err) {},
-    });
-  })
-
-   // Update button
-  $(document).on("click", ".update-button", function (e) {
-    e.preventDefault();
-
-    var theproductid = $(this).data('index');
-
-    $.ajax({
-      type: "POST",
-      url: '{% url "cart-update" %}',
-      data: {
-        product_id: $(this).data('index'),  // identify which delete button we use on the site
-        product_quantity: $('#select' + theproductid + ' option:selected').text(), //
-        csrfmiddlewaretoken: "{{ csrf_token }}",
-        action: "post",
-      },
-
-      success: function (json) {
-        //console.log(json) - przy tescie sesji potrzebne do wypisania wyniku w konsoli
-
-        location.reload();
-
-        document.getElementById("cart-qty").textContent = json.qty
-
-        document.getElementById("total").textContent = json.total
-
+        document.getElementById("total").textContent = json.total;
       },
 
       error: function (xhr, errmsg, err) {},
     });
   });
 
+  // Update button
+  $(document).on("click", ".update-button", function (e) {
+    e.preventDefault();
+
+    var theproductid = $(this).data("index");
+
+    $.ajax({
+      type: "POST",
+      url: '{% url "cart-update" %}',
+      data: {
+        product_id: $(this).data("index"), // identify which delete button we use on the site
+        product_quantity: $(
+          "#select" + theproductid + " option:selected"
+        ).text(), //
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+        action: "post",
+      },
+
+      success: function (json) {
+        //console.log(json) - przy tescie sesji potrzebne do wypisania wyniku w konsoli
+
+        location.reload(true); // true was added for better optimization to ensure that your users have a smoother experience on all web browsers
+        document.getElementById("cart-qty").textContent = json.qty;
+
+        document.getElementById("total").textContent = json.total;
+      },
+
+      error: function (xhr, errmsg, err) {},
+    });
+  });
 </script>
 
 {% endblock %}
