@@ -46,7 +46,7 @@
 
                 &nbsp;
 
-                <select id="">
+                <select id="select{{product.id}}">
                   <option selected>
                     {{item.qty}}
                   </option>
@@ -65,7 +65,7 @@
 
                 <button
                   type="button"
-                  id="update-button"
+                  data-index="{{product.id}}"
                   class="btn btn-primary btn-sm update-button"
                 >
                   Aktualizacja
@@ -130,6 +130,39 @@
 
       error: function (xhr, errmsg, err) {},
     });
-  });</script>
+  })
+
+   // Update button
+  $(document).on("click", ".update-button", function (e) {
+    e.preventDefault();
+
+    var theproductid = $(this).data('index');
+
+    $.ajax({
+      type: "POST",
+      url: '{% url "cart-update" %}',
+      data: {
+        product_id: $(this).data('index'),  // identify which delete button we use on the site
+        product_quantity: $('#select' + theproductid + ' option:selected').text(), //
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+        action: "post",
+      },
+
+      success: function (json) {
+        //console.log(json) - przy tescie sesji potrzebne do wypisania wyniku w konsoli
+
+        location.reload();
+
+        document.getElementById("cart-qty").textContent = json.qty
+
+        document.getElementById("total").textContent = json.total
+
+      },
+
+      error: function (xhr, errmsg, err) {},
+    });
+  });
+
+</script>
 
 {% endblock %}
