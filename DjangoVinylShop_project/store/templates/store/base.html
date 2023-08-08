@@ -97,17 +97,44 @@
 
     <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="btn btn-alert navbar-btn text-white" type="button" href="{% url 'register' %}">
-            Rejestracja
-          </a>
-        </li>
 
-        <li class="nav-item">
-          <a class="btn btn-alert navbar-btn text-white" type="button" href="{% url 'my-login' %}">
-            Logowanie
-          </a>
-        </li>
+        {% if user.is_authenticated %}
+
+            <li class="nav-item">
+              <a class="btn btn-alert navbar-btn text-white" type="button" href="{% url 'dashboard' %}">
+                My account
+              </a>
+            </li>
+
+            {% else %}
+
+
+            <li class="nav-item">
+              <a class="btn btn-alert navbar-btn text-white" type="button" href="{% url 'register' %}">
+                Register
+              </a>
+            </li>
+
+        {% endif %}
+
+        {% if user.is_authenticated %}
+
+            <li class="nav-item">
+              <a class="btn btn-alert navbar-btn text-white" type="button" href="{% url 'user-logout' %}">
+                Logout
+              </a>
+            </li>
+
+            {% else %}
+            
+
+              <li class="nav-item">
+                <a class="btn btn-alert navbar-btn text-white" type="button" href="{% url 'my-login' %}">
+                  Logowanie
+                </a>
+              </li>
+
+        {% endif %}
 
         &nbsp; &nbsp; &nbsp;
 
