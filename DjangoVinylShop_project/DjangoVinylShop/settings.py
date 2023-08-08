@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'cart',
     'mathfilters',
     'payment',
-    'crispy_forms'
+    'crispy_forms',
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
