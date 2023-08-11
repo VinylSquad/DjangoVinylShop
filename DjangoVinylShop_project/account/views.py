@@ -166,7 +166,7 @@ def manage_shipping(request):
     form = ShippingForm(instance=shipping)
 
     if request.method == 'POST':
-        form = ShippingForm(request, instance=shipping)
+        form = ShippingForm(request.POST, instance=shipping)
 
         if form.is_valid():
             # assign user foreigh key on the object
