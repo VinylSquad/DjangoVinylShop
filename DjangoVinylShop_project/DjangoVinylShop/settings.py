@@ -138,7 +138,7 @@ MEDIA_ROOT = BASE_DIR / 'static/media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Email verification settings
+# Email verification settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
