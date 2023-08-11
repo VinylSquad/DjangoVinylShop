@@ -47,7 +47,7 @@
 
   <nav class="navbar navbar-expand-lg bg-primary justify-content-center">
     <a class="navbar-brand main-heading text-white" href="{% url 'store' %}">
-      &nbsp; &nbsp; DjangoVinylShop
+      &nbsp; &nbsp; Django Vinyl Shop
     </a>
 
     <button
@@ -73,7 +73,7 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Wybierz muzykę
+            Wybierz Muzę
           </a>
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -95,44 +95,25 @@
 
     <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
-
-        {% if user.is_authenticated %}
-
-            <li class="nav-item">
-              <a class="btn btn-alert navbar-btn text-white" type="button" href="{% url 'dashboard' %}">
-                My account
-              </a>
-            </li>
-
-            {% else %}
-
-
-            <li class="nav-item">
-              <a class="btn btn-alert navbar-btn text-white" type="button" href="{% url 'register' %}">
-                Register
-              </a>
-            </li>
-
-        {% endif %}
-
-        {% if user.is_authenticated %}
-
-            <li class="nav-item">
-              <a class="btn btn-alert navbar-btn text-white" type="button" href="{% url 'user-logout' %}">
-                Logout
-              </a>
-            </li>
-
-            {% else %}
-            
-
         <li class="nav-item">
-          <a class="btn btn-alert navbar-btn text-white" type="button" href="{% url 'my-login' %}">
-            Logowanie
+          <a
+            class="btn btn-alert navbar-btn text-white"
+            type="button"
+            href="{% url 'register' %}"
+          >
+            Rejestracja
           </a>
         </li>
 
-        {% endif %}
+        <li class="nav-item">
+          <a
+            class="btn btn-alert navbar-btn text-white"
+            type="button"
+            href="{% url 'my-login' %}"
+          >
+            Logowanie
+          </a>
+        </li>
 
         &nbsp; &nbsp; &nbsp;
 
