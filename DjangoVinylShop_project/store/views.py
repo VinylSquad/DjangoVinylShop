@@ -21,7 +21,8 @@ def categories(request):
     all_categories = Category.objects.all()
 
     return {'all_categories': all_categories}
-# After that go to context processor in setting.py/TEMPLATES and add your views
+
+    # After that go to context processor in setting.py/TEMPLATES and add your views
 
 
 def list_category(request, category_slug=None):

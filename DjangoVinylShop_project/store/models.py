@@ -19,6 +19,12 @@ class Category(models.Model):
     def __str__(self):
 
         return self.name
+    
+    
+    
+    def get_absolute_url(self):
+
+        return reverse('list-category', args=[self.slug])
 
 
 class Product(models.Model):
@@ -51,7 +57,9 @@ class Product(models.Model):
 
     def __str__(self):
 
-        return f"{self.artist} {self.title}"
+        return f"{self.artist} - {self.title}"
+
+
 
     # function for dynamic links to products
 
