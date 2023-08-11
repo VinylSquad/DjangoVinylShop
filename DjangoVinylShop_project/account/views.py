@@ -15,7 +15,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from payment.forms import ShippingForm
-from payment.models import ShippingAddress
+from payment.models import ShippingAddress, Order, OrderItem
 
 
 
@@ -153,7 +153,7 @@ def dashboard(request):
 
 
 # shipping view
-#@login_required(login_url='my-login')
+@login_required(login_url='my-login')
 def manage_shipping(request):
     try:
         # logged user with shipment information
@@ -180,3 +180,12 @@ def manage_shipping(request):
     context = {'form':form}
     return render(request, 'account/manage-shipping.html', context=context)
         
+@login_required(login_url='my-login')        
+def track_orders(request):
+    try:
+        orders = OrderItem.objects.filter(user=request.user)
+        context = {'orders':orders}
+        return render(request, 'account/track-orders.html', context=context)
+    
+    except:
+        return render(request, 'account/track-orders.html', context=context)
