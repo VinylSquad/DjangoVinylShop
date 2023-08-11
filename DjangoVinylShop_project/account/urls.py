@@ -24,7 +24,14 @@ urlpatterns = [
     
     path('user-logout', views.user_logout, name='user-logout'),
 
+    #manage shipping url
 
+    path('manage-shipping', views.manage_shipping, name='manage-shipping'),
+    
+    #track order url
+
+    path('track-orders', views.track_orders, name='track-orders'),
+    
     #dashboard / profile urls
 
     path('dashboard', views.dashboard, name='dashboard'),

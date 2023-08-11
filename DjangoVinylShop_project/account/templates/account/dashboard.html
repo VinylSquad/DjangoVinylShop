@@ -34,6 +34,7 @@
        
        <li>Track your orders</li>
        <li>Manage your account</li>
+       <li>Manage shipping address</li>
        
         
 
@@ -56,7 +57,7 @@
 
         <p>Track all of your orders here...</p>
 
-        <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'user-logout' %}"> My orders</a>
+        <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'track-orders' %}"> My orders</a>
 
         
     </div>
@@ -74,6 +75,36 @@
         <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'profile-management' %}"> Profile management</a>
         <br>
         <br>
+
+        
+    </div>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+        <h3>Manage shipping address</h3>
+
+        <hr>
+
+        <p>Enter in a shipping address</p>
+        
+        <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'manage-shipping' %}"> Manage shipping address</a>
+
+        
+    </div>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+        <h3>Manage shipping address</h3>
+
+        <hr>
+
+        <p>Enter in a shipping address</p>
+        
+        <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'manage-shipping' %}"> Manage shipping address</a>
 
         
     </div>
