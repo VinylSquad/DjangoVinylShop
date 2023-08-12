@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import search_view
 
 urlpatterns = [
     
@@ -11,6 +12,11 @@ urlpatterns = [
     
     # Individual category page
     path('search/<slug:category_slug>/', views.list_category, name='list-category'),
+
+
+    path('search/', search_view, name='search_view'),
+
+
     
     
     
