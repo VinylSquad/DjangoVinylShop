@@ -94,6 +94,12 @@
     </div>
 
     <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+
+      <form class="d-flex" method="get" action="{% url 'search_view' %}">
+        <input class="form-control me-2" type="search" name="query" placeholder="Search by artist" aria-label="Search">
+        <button class="btn btn-outline-success custom-search-button" type="submit">Search</button>
+    </form>
+
       <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
 

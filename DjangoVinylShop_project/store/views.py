@@ -41,3 +41,18 @@ def product_info(request, product_slug):
     context = {'product': product}
 
     return render(request, 'store/product-info.html', context)
+
+
+def search_view(request):
+    query = request.GET.get('query')
+    results = []
+
+    if query:
+        results = Product.objects.filter(artist__icontains=query)  # Replace 'title' with the field you want to search
+
+    context = {
+        'query': query,
+        'results': results,
+    }
+
+    return render(request, 'store/search_results.html', context)
