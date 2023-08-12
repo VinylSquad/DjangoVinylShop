@@ -1,85 +1,99 @@
-{% include "store/base.html" %} {% load static %} {%load crispy_forms_tags %} {%
-block content %}
+{% include "store/base.html" %}
+
+{% load static %}
+
+{%load crispy_forms_tags %}
+
+{% block content %}
 
 <style>
-  body {
-    background-color: gray;
-  }
+
+    body{
+
+        background-color: gray;
+
+
+
+    }
+
+
+
+
 </style>
 
 <body>
-  <br />
+    <br>
 
-  <div class="container bg-white shadow-md p-5 form-layout">
-    <h3>Welcome, {{user}}!</h3>
+    <div class="container bg-white shadow-md p-5 form-layout">
 
-    <hr />
+        <h3>Welcome, {{user}}!</h3>
 
-    <p>This your dashboard where you can:</p>
+        <hr>
 
-    <li>Track your orders</li>
-    <li>Manage your account</li>
-    <li>Manage shipping address</li>
+       <p>This your dashboard where you can:</p> 
+       
+       <li>Track your orders</li>
+       <li>Manage your account</li>
+       <li>Manage shipping address</li>
+       
+        
 
-    <br />
-  </div>
 
-  <br />
 
-  <div class="container bg-white shadow-md p-5 form-layout">
-    <h3>Track your orders</h3>
+        <br>
+       
 
-    <hr />
+        
 
-    <p>Track all of your orders here...</p>
+    </div>
 
-    <a
-      class="btn btn-primary navbar-btn text-white"
-      type="button"
-      href="{% url 'track-orders' %}"
-    >
-      My orders</a
-    >
-  </div>
+    <br>
 
-  <br />
+    <div class="container bg-white shadow-md p-5 form-layout">
 
-  <div class="container bg-white shadow-md p-5 form-layout">
-    <h3>Manage your account</h3>
-    <hr />
+        <h3>Track your orders</h3>
 
-    <p>Update or delete your account</p>
+        <hr>
 
-    <a
-      class="btn btn-primary navbar-btn text-white"
-      type="button"
-      href="{% url 'profile-management' %}"
-    >
-      Profile management</a
-    >
-    <br />
-    <br />
-  </div>
+        <p>Track all of your orders here...</p>
 
-  <br />
+        <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'track-orders' %}"> My orders</a>
 
-  <div class="container bg-white shadow-md p-5 form-layout">
-    <h3>Manage shipping address</h3>
+        
+    </div>
 
-    <hr />
+    <br>
 
-    <p>Enter in a shipping address</p>
+    <div class="container bg-white shadow-md p-5 form-layout">
 
-    <a
-      class="btn btn-primary navbar-btn text-white"
-      type="button"
-      href="{% url 'manage-shipping' %}"
-    >
-      Manage shipping address</a
-    >
-  </div>
+        <h3>Manage your account</h3>
+        <hr>
 
-  <br />
+        <p>Update or delete your account</p>
+        
 
-  {% endblock %}
-</body>
+        <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'profile-management' %}"> Profile management</a>
+        <br>
+        <br>
+
+        
+    </div>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+        <h3>Manage shipping address</h3>
+
+        <hr>
+
+        <p>Enter in a shipping address</p>
+        
+        <a class="btn btn-primary navbar-btn text-white" type="button" href="{% url 'manage-shipping' %}"> Manage shipping address</a>
+
+        
+    </div>
+
+    <br>
+
+{% endblock %}
