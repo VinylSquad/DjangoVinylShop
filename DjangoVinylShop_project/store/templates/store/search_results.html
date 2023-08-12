@@ -1,0 +1,28 @@
+{% extends './base.html' %}
+
+{% block content %}
+    <h2>Search Results</h2>
+
+    {% if query %}
+        <p>Search results for: <strong>{{ query }}</strong></p>
+    {% endif %}
+
+    <ul>
+        {% for result in results %}
+            <a class="text-info text-decoration-none" href="{{ result.get_absolute_url }}">
+       
+            <li>{{ result.artist }} - {{ result.title }}  </li>                <!-- Replace 'title' with the field you want to display -->
+
+        </a>
+
+        {% empty %}
+            <li>No results found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+
+
+
