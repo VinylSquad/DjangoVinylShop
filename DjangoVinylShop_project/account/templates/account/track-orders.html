@@ -1,65 +1,46 @@
-{% include "store/base.html" %}
-
-{% load static %}
-
-{%load crispy_forms_tags %}
-
-{% block content %}
+{% include "store/base.html" %} {% load static %} {%load crispy_forms_tags %} {%
+block content %}
 
 <style>
-
-    body{
-
-        background-color: gray;
-
-
-
-    }
-
-
-
-
+  body {
+    background-color: gray;
+  }
 </style>
 
-<br> 
+<br />
 
-<div class="container bg-white shadow-md p-5 form-layout ">
-    <div class="text-center">
+<div class="container bg-white shadow-md p-5 form-layout">
+  <div class="text-center">
+    <h3>Your orders</h3>
 
-        <h3> Twoje zamówienia </h3>
-
-    <hr>
-
-    </div>
-
+    <hr />
+  </div>
 </div>
 
-<br>
+<br />
 
-<div class="container bg-white shadow-md p-5 form-layout ">
-    
-    {% for order in orders %}
+<div class="container bg-white shadow-md p-5 form-layout">
+  {% for order in orders %}
 
-    <strong> Order ID # {{order.id}} </strong>
+  <strong> Order ID # {{order.id}} </strong>
 
-    <br><br>
+  <br /><br />
 
-    {{order.product}}
+  {{order.product}}
 
-    <br><br>
-    
-    Quantity x {{order.quantity}}
+  <br /><br />
 
-    <br><br>
+  Quantity x {{order.quantity}}
 
-    {{order.price}} PLN
+  <br /><br />
 
-    <br><br>
+  {{order.price}} PLN
 
-    <hr>
+  <br /><br />
 
-    {% endfor %}
+  <hr />
 
+  {% endfor %}
 </div>
 
 {% endblock %}

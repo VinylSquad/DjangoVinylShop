@@ -1,77 +1,58 @@
-{% include "store/base.html" %}
-
-{% load static %}
-
-{%load crispy_forms_tags %}
-
-{% block content %}
+{% include "store/base.html" %} {% load static %} {%load crispy_forms_tags %} {%
+block content %}
 
 <style>
-
-    body{
-
-        background-color: gray;
-
-
-
-    }
-
-
-
-
+  body {
+    background-color: gray;
+  }
 </style>
 
 <body>
-    <br>
+  <br />
 
-    <div class="container bg-white shadow-md p-5 form-layout">
+  <div class="container bg-white shadow-md p-5 form-layout">
+    <h3>Manage shipping</h3>
 
-        <h3>Manage shipping</h3>
+    <p>Please fill in the shipping details</p>
 
-        <p>Proszę uzupełnić dane do wysyłki</p>
+    <br />
 
-        <br>
+    <form method="POST" autocomplete="off">
+      {% csrf_token %} {{form.full_name | as_crispy_field}}
 
-        <form method="POST"  autocomplete="off">
+      <br />
 
-            {% csrf_token %}
+      {{form.email | as_crispy_field}}
 
-            {{form.full_name | as_crispy_field}}
+      <br />
 
-            <br>
+      {{form.street | as_crispy_field}}
 
-            {{form.email | as_crispy_field}}
+      <br />
 
-            <br>
+      {{form.street_number | as_crispy_field}}
 
-            {{form.street | as_crispy_field}}
+      <br />
 
-            <br>
+      {{form.city | as_crispy_field}}
 
-            {{form.street_number | as_crispy_field}}
+      <br />
 
-            <br>
+      {{form.zipcode | as_crispy_field}}
 
-            {{form.city | as_crispy_field}}
+      <br />
 
-            <br>
-
-            {{form.zipcode | as_crispy_field}}
-
-            <br>
-
-
-
-            <button type="submit" class="btn btn-secondary btn-lg w-100 btn-block p-2"> &nbsp; Zapisz</button>
-
-
-
-        </form>
-
-    </div>
+      <button
+        type="submit"
+        class="btn btn-secondary btn-lg w-100 btn-block p-2"
+      >
+        &nbsp; Save
+      </button>
+    </form>
+  </div>
 </body>
 
-<br>
-<br>
+<br />
+<br />
 
 {% endblock %}
