@@ -73,12 +73,12 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Wybierz Muzę
+            Choose genre
           </a>
 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" href="{% url 'store' %}"> Wszystkie </a>
+              <a class="dropdown-item" href="{% url 'store' %}"> All </a>
             </li>
 
             {% for category in all_categories %}
@@ -95,15 +95,43 @@
 
     <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
+        {% if user.is_authenticated %}
+
+        <li class="nav-item">
+          <a
+            class="btn btn-alert navbar-btn text-white"
+            type="button"
+            href="{% url 'dashboard' %}"
+          >
+            My account
+          </a>
+        </li>
+
+        {% else %}
+
         <li class="nav-item">
           <a
             class="btn btn-alert navbar-btn text-white"
             type="button"
             href="{% url 'register' %}"
           >
-            Rejestracja
+            Register
           </a>
         </li>
+
+        {% endif %} {% if user.is_authenticated %}
+
+        <li class="nav-item">
+          <a
+            class="btn btn-alert navbar-btn text-white"
+            type="button"
+            href="{% url 'user-logout' %}"
+          >
+            Logout
+          </a>
+        </li>
+
+        {% else %}
 
         <li class="nav-item">
           <a
@@ -111,11 +139,11 @@
             type="button"
             href="{% url 'my-login' %}"
           >
-            Logowanie
+            Login
           </a>
         </li>
 
-        &nbsp; &nbsp; &nbsp;
+        {% endif %} &nbsp; &nbsp; &nbsp;
 
         <li class="nav-item">
           <a
