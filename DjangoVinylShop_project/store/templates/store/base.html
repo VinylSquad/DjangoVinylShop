@@ -94,11 +94,21 @@
     </div>
 
     <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
-
       <form class="d-flex" method="get" action="{% url 'search_view' %}">
-        <input class="form-control me-2" type="search" name="query" placeholder="Search by artist" aria-label="Search">
-        <button class="btn btn-outline-success custom-search-button" type="submit">Search</button>
-    </form>
+        <input
+          class="form-control me-2"
+          type="search"
+          name="query"
+          placeholder="Search by artist"
+          aria-label="Search"
+        />
+        <button
+          class="btn btn-outline-success custom-search-button"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
 
       <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
@@ -163,19 +173,8 @@
             &nbsp;
 
             <div id="cart-qty" class="d-inline-flex">
-              
-              {% with qty_amount=cart|length %} 
-                
-                {% if qty_amount > 0 %} 
-                    {{ qty_amount }} 
-                    
-                    {% else %} 
-                      0 
-                    
-                {% endif %} 
-              
-              {% endwith %}
-
+              {% with qty_amount=cart|length %} {% if qty_amount > 0 %} {{
+              qty_amount }} {% else %} 0 {% endif %} {% endwith %}
             </div>
           </a>
         </li>
@@ -188,4 +187,12 @@
   <body>
     {% block content %} {% endblock %}
   </body>
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted"
+        >Webpage created by Tomasz Ćwiek Marek Jarczewski Łukasz Wróblewski SDA
+        Academy 2023</span
+      >
+    </div>
+  </footer>
 </html>
