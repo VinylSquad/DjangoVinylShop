@@ -2,7 +2,7 @@
 
 <main class="pt-5">
   <div class="container">
-    <h1 class="h5">Koszyk z zakupami</h1>
+    <h1 class="h5">Shopping cart</h1>
 
     <hr />
 
@@ -28,7 +28,7 @@
         <div class="border">
           <div class="col border-bottom">
             <div class="row p-3">
-              <div class="col-6">Produkt</div>
+              <div class="col-6">Product</div>
 
               <div class="col-6 text-end">
                 <span class="h6 fw-bold"
@@ -41,7 +41,7 @@
           <div class="col">
             <div class="row p-3">
               <div class="col-12">
-                <label for="select">Ilość</label>
+                <label for="select">Quantity</label>
 
                 &nbsp;
 
@@ -65,7 +65,7 @@
                   data-index="{{product.id}}"
                   class="btn btn-primary btn-sm update-button"
                 >
-                  Aktualizacja
+                  Update
                 </button>
 
                 &nbsp;
@@ -75,7 +75,7 @@
                   data-index="{{product.id}}"
                   class="btn btn-danger btn-sm delete-button"
                 >
-                  Usuń
+                  Delete
                 </button>
               </div>
             </div>
@@ -88,10 +88,10 @@
 
     <div class="col-12 text-end">
       <div class="h6 fw-bold">
-        Suma: PLN
+        Total: PLN
         <div id="total" class="d-inline-flex">{{cart.get_total}}</div>
       </div>
-      <a href="{% url 'checkout' %}" class="btn btn-primary my-2"> <i class="fa fa-chevron-circle-right" aria-hidden="true"></i> &nbsp; Podsumowanie zamówienia </a>
+      <a href="{% url 'checkout' %}" class="btn btn-primary my-2"> <i class="fa fa-chevron-circle-right" aria-hidden="true"></i> &nbsp; Order summary </a>
 
 <br>
 <br>
