@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 
 def store(request):
 
-    all_products = Product.objects.all()
+    all_products = Product.objects.all().order_by('?')
 
     context = {'all_products': all_products}
 
