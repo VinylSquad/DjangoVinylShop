@@ -4,11 +4,15 @@ from . models import Category, Product
 
 from django.shortcuts import get_object_or_404
 
+# import paginator stuff
+from django.core.paginator import Paginator
+
 # Create your views here.
 
 
 def store(request):
 
+    # all_products = Product.objects.all().order_by('?') # get all products and display by random
     all_products = Product.objects.all()
 
     context = {'all_products': all_products}
@@ -16,13 +20,15 @@ def store(request):
     return render(request, 'store/store.html', context)
 
 
+
 def categories(request):
 
-    all_categories = Category.objects.all()
+    all_categories = Category.objects.all().order_by('?')
 
     return {'all_categories': all_categories}
 
     # After that go to context processor in setting.py/TEMPLATES and add your views
+
 
 
 def list_category(request, category_slug=None):
@@ -34,6 +40,7 @@ def list_category(request, category_slug=None):
     return render(request, 'store/list-category.html', {'category': category, 'products': products})
 
 
+
 def product_info(request, product_slug):
 
     product = get_object_or_404(Product, slug=product_slug)
@@ -41,6 +48,7 @@ def product_info(request, product_slug):
     context = {'product': product}
 
     return render(request, 'store/product-info.html', context)
+
 
 
 def search_view(request):
@@ -56,6 +64,7 @@ def search_view(request):
     }
 
     return render(request, 'store/search_results.html', context)
+
 
 
 def error_404(request, exception):
