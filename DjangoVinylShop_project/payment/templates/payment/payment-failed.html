@@ -1,0 +1,44 @@
+{% extends "store/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+
+    body{
+
+        background-color: gray;
+
+
+
+    }
+
+
+
+
+</style>
+
+<body>
+    <br>
+
+    
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+        <div class="text-center">
+            <i class="text-danger fa fa-credit-card-alt fa-3x" aria-hidden="true"></i>
+       
+        <br><br>
+
+        <h5> <strong> The payment has failed. </strong> </h5>
+        <hr>
+        <p> Please retry the payment to complete your order. </p>
+        
+        </div>
+
+    </div>
+
+</body>
+
+{% endblock %}

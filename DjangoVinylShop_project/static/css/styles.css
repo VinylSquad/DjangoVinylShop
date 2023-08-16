@@ -1,0 +1,17 @@
+.form-layout {
+  border-radius: 20px;
+  width: 500px;
+}
+
+.custom-search-button {
+  background-color: gray; /* Kolor tła */
+  color: white; /* Kolor tekstu */
+  border-color: gray; /* Kolor obramowania */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Płynne przejście kolorów */
+}
+
+.custom-search-button:hover {
+  background-color: white; /* Nowy kolor tła po najechaniu */
+  color: gray; /* Nowy kolor tekstu po najechaniu */
+  border-color: white; /* Nowy kolor obramowania po najechaniu */
+}
