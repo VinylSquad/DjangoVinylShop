@@ -48,7 +48,7 @@ def complete_order(request):
 
         # 1. Create order -> account users with / without shipping information
         if request.user.is_authenticated:
-            order = Order.objects.create(full_name=name, email=email, shipping_address=shipping_address)    # full_name -> Imię i nazwisko
+            order = Order.objects.create(full_name=name, email=email, shipping_address=shipping_address)   
             amount_paid=total_cost, user=request.user
             order_id = order.pk
 
@@ -57,7 +57,7 @@ def complete_order(request):
 
         # 2. Create order -> guest users without an account
         else:
-            order = Order.objects.create(full_name=name, email=email, shipping_address=shipping_address)    # full_name -> Imię i nazwisko
+            order = Order.objects.create(full_name=name, email=email, shipping_address=shipping_address)    
             amount_paid=total_cost
             order_id = order.pk
 
